@@ -8,11 +8,11 @@ Bootstrap 3, with all LESS files for easy style customization.
 1. `npm install -g meteorite` (if not already installed)
 2. `mrt add less`
 3. `mrt add bootstrap3-less`
-4. Create a .less file anywhere in your project to be served to the client and add `@import "/packages/bootstrap3-less/bootstrap.importless";`
+4. Create a .less file anywhere in your project to be served to the client and add `@import "/packages/bootstrap3-less/bootstrap.lessimport";`
 
 ## Meteorite version < pre-0.6.0
 
-Previous version of Meteorite stored the packages in .meteor/meteorite/, in which case you need to change the `@import` path to `@import "/.meteor/meteorite/packages/bootstrap3-less/bootstrap.importless";`
+Previous version of Meteorite stored the packages in .meteor/meteorite/, in which case you need to change the `@import` path to `@import "/.meteor/meteorite/packages/bootstrap3-less/bootstrap.lessimport";`
 
 ## License
 
