@@ -3,7 +3,7 @@
   "description": "Bootstrap 3 with LESS for easy CSS customization",
   "homepage": "https://github.com/eprochasson/bootstrap3-less",
   "author": "Emmanuel Prochasson <eprochasson@gmail.com>",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "git": "https://github.com/eprochasson/bootstrap3-less",
   "packages": {}
 }
