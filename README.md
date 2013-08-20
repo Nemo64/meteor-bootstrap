@@ -16,7 +16,7 @@ Previous version of Meteorite stored the packages in .meteor/meteorite/, in whic
 
 ## License
 
-This package is licensed with the MIT license. [Twitter's Bootstrap License](https://github.com/twitter/bootstrap).
+This package is licensed with the MIT license. [Twitter's Bootstrap License](https://github.com/twbs/bootstrap).
 
 ## Contributors
 - [Emmanuel Prochasson](https://github.com/eprochasson/)
