@@ -9,6 +9,7 @@ Bootstrap 3, with all LESS files for easy style customization.
 2. `mrt add less`
 3. `mrt add bootstrap3-less`
 4. Create a .less file anywhere in your project to be served to the client and add `@import "/packages/bootstrap3-less/bootstrap.lessimport";`
+5. `cd public && ln -s ../packages/bootstrap3-less/lib/fonts ./`
 
 ## Meteorite version < pre-0.6.0
 
