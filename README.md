@@ -15,9 +15,14 @@ Bootstrap 3, with all LESS files for easy style customization.
 
 Previous version of Meteorite stored the packages in .meteor/meteorite/, in which case you need to change the `@import` path to `@import "/.meteor/meteorite/packages/bootstrap3-less/bootstrap.lessimport";`
 
+## Advanced Usage
+
+https://github.com/zeroasterisk/bootstrap3-less/wiki/How-To-Use-Bootstrap3-less-in-Meteor
+
 ## License
 
 This package is licensed with the MIT license. [Twitter's Bootstrap License](https://github.com/twbs/bootstrap).
 
 ## Contributors
 - [Emmanuel Prochasson](https://github.com/eprochasson/)
+- [Alan Blount](https://github.com/zeroasterisk/)
