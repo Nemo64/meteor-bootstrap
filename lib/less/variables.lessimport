@@ -67,7 +67,8 @@
 // Iconography
 // -------------------------
 
-@icon-font-path:          "../fonts/";
+
+@icon-font-path:          "//netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/";
 @icon-font-name:          "glyphicons-halflings-regular";
 
 
