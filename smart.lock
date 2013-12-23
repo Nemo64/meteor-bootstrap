@@ -1,0 +1,15 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "bootstrap3-less": {
+        "path": "."
+      }
+    },
+    "packages": {
+      "bootstrap3-less": {
+        "path": "."
+      }
+    }
+  }
+}
