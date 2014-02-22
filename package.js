@@ -1,10 +1,10 @@
-Package.describe({
-    summary: "Bootstrap 3, with Less files (v3.0.3)."
-});
+Package.describe({ summary: 'Bootstrap 3, with Less files (v3.0.3).' });
 
 Package.on_use(function (api) {
-    api.use('jquery', 'client');
-    api.use('less','client');
+	api.use('jquery', 'client');
+	api.use('less', 'client');
+
+	// javascript
     api.add_files('lib/js/affix.js', 'client');
     api.add_files('lib/js/alert.js', 'client');
     api.add_files('lib/js/button.js', 'client');
@@ -18,9 +18,9 @@ Package.on_use(function (api) {
     api.add_files('lib/js/tooltip.js', 'client');
     api.add_files('lib/js/transition.js', 'client');
 
-    // fonts
+	// fonts
     api.add_files('lib/fonts/glyphicons-halflings-regular.eot', 'client');
-    api.add_files('lib/fonts/glyphicons-halflings-regular.ttf', 'client');
     api.add_files('lib/fonts/glyphicons-halflings-regular.svg', 'client');
+    api.add_files('lib/fonts/glyphicons-halflings-regular.ttf', 'client');
     api.add_files('lib/fonts/glyphicons-halflings-regular.woff', 'client');
 });
