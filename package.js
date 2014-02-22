@@ -1,4 +1,4 @@
-Package.describe({ summary: 'Bootstrap 3, with Less files (v3.0.3).' });
+Package.describe({ summary: 'Bootstrap 3, with Less files.' });
 
 Package.on_use(function (api) {
 	api.use('jquery', 'client');

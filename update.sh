@@ -26,7 +26,7 @@ do
 done
 
 echo "bootstrap installation found, delete old files..."
-rm lib/less/*.lessimport lib/js/*.js lib/fonts/*
+rm lib/less/*.less* lib/js/*.js lib/fonts/*
 
 
 
@@ -36,7 +36,8 @@ echo "copy files from bootstrap installation..."
 cp $BOOTSTRAP_ROOT/js/*.js lib/js
 cp $BOOTSTRAP_ROOT/fonts/* lib/fonts
 cp $BOOTSTRAP_ROOT/less/* lib/less
-rename "s/\\.less/\\.lessimport/" lib/less/*.less
+# versions of meteor after v0.7.0.1 (excluding) want .import.less instead of .lessimport
+rename "s/\\.less/\\.import.less/" lib/less/*.less
 
 
 
@@ -44,7 +45,7 @@ rename "s/\\.less/\\.lessimport/" lib/less/*.less
 
 echo "generate package.js file"
 
-echo "Package.describe({ summary: 'Bootstrap 3, with Less files (v3.0.3).' });" > $METEOR_PACKAGE_FILE
+echo "Package.describe({ summary: 'Bootstrap 3, with Less files.' });" > $METEOR_PACKAGE_FILE
 echo >> $METEOR_PACKAGE_FILE
 echo "Package.on_use(function (api) {" >> $METEOR_PACKAGE_FILE
 echo "	api.use('jquery', 'client');" >> $METEOR_PACKAGE_FILE
