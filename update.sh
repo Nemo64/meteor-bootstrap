@@ -1,7 +1,8 @@
 #!/bin/bash
 
 BOOTSTRAP_ROOT=$1
-BOOTSTRAP_DIRS=("less" "js" "fonts")
+BOOTSTRAP_DIRS="less js fonts"
+BOOTSTRAP_JS="transition alert button carousel collapse dropdown modal tooltip popover scrollspy tab affix"
 METEOR_PACKAGE_FILE=package.js
 
 # check if the path is given and exists
@@ -53,10 +54,10 @@ echo "	api.use('less', 'client');" >> $METEOR_PACKAGE_FILE
 
 echo >> $METEOR_PACKAGE_FILE
 echo "	// javascript" >> $METEOR_PACKAGE_FILE
-for JSFILE in lib/js/*.js
+for JSFILE in $BOOTSTRAP_JS
 do 
-	echo "add javascript file '$JSFILE'"
-	echo "    api.add_files('$JSFILE', 'client');" >> $METEOR_PACKAGE_FILE
+	echo "add javascript file '$JSFILE.js'"
+	echo "    api.add_files('lib/js/$JSFILE.js', 'client');" >> $METEOR_PACKAGE_FILE
 done
 
 echo >> $METEOR_PACKAGE_FILE

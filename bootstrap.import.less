@@ -1,2 +1,65 @@
-@import "lib/less/bootstrap.import.less";
-@icon-font-path: "/packages/bootstrap3-less/lib/fonts/";
+// defines where the less files are
+@bootstrap-less-root: "/packages/bootstrap3-less/lib/less";
+
+// Import Bootstrap Config Defaults
+// ---------------------------------------
+// (you need these first, to get the default setup for bootstrap)
+
+
+@import "@{bootstrap-less-root}/variables.import.less";
+@import "@{bootstrap-less-root}/mixins.import.less";
+
+// Application Overrides (config)
+// ---------------------------------------
+// (Here you can override any variables defined in the default set above)
+
+
+// Import Bootstrap
+// ---------------------------------------
+// (This is the full set of package files, include only what you need)
+
+// Reset
+@import "@{bootstrap-less-root}/normalize.import.less";
+@import "@{bootstrap-less-root}/print.import.less";
+
+// Core CSS
+@import "@{bootstrap-less-root}/scaffolding.import.less";
+@import "@{bootstrap-less-root}/type.import.less";
+@import "@{bootstrap-less-root}/code.import.less";
+@import "@{bootstrap-less-root}/grid.import.less";
+@import "@{bootstrap-less-root}/tables.import.less";
+@import "@{bootstrap-less-root}/forms.import.less";
+@import "@{bootstrap-less-root}/buttons.import.less";
+
+// Components
+@import "@{bootstrap-less-root}/component-animations.import.less";
+@import "@{bootstrap-less-root}/glyphicons.import.less";
+@import "@{bootstrap-less-root}/dropdowns.import.less";
+@import "@{bootstrap-less-root}/button-groups.import.less";
+@import "@{bootstrap-less-root}/input-groups.import.less";
+@import "@{bootstrap-less-root}/navs.import.less";
+@import "@{bootstrap-less-root}/navbar.import.less";
+@import "@{bootstrap-less-root}/breadcrumbs.import.less";
+@import "@{bootstrap-less-root}/pagination.import.less";
+@import "@{bootstrap-less-root}/pager.import.less";
+@import "@{bootstrap-less-root}/labels.import.less";
+@import "@{bootstrap-less-root}/badges.import.less";
+@import "@{bootstrap-less-root}/jumbotron.import.less";
+@import "@{bootstrap-less-root}/thumbnails.import.less";
+@import "@{bootstrap-less-root}/alerts.import.less";
+@import "@{bootstrap-less-root}/progress-bars.import.less";
+@import "@{bootstrap-less-root}/media.import.less";
+@import "@{bootstrap-less-root}/list-group.import.less";
+@import "@{bootstrap-less-root}/panels.import.less";
+@import "@{bootstrap-less-root}/wells.import.less";
+@import "@{bootstrap-less-root}/close.import.less";
+
+// Components w/ JavaScript
+@import "@{bootstrap-less-root}/modals.import.less";
+@import "@{bootstrap-less-root}/tooltip.import.less";
+@import "@{bootstrap-less-root}/popovers.import.less";
+@import "@{bootstrap-less-root}/carousel.import.less";
+
+// Utility classes
+@import "@{bootstrap-less-root}/utilities.import.less";
+@import "@{bootstrap-less-root}/responsive-utilities.import.less";
