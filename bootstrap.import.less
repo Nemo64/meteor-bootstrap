@@ -1,34 +1,3 @@
-# Bootstrap 3 with Less
-## Twitter's Bootstrap3 Packaged for Meteor, using Less
-
-Bootstrap 3, with all LESS files for easy style customization.
-
-## How to install
-
-1. `npm install -g meteorite` (if not already installed)
-2. `mrt add less`
-3. `mrt add bootstrap3-less`
-4. Create a .less file anywhere in your project to be served to the client and add `@import "/packages/bootstrap3-less/bootstrap.import.less";`
-5. `cd public && ln -s ../packages/bootstrap3-less/lib/fonts ./`
-
-## Costumized Usage
-
-You can copy the `bootstrap.import.less` file into your project and overwrite the variables like this:
-```css
-// Application Overrides (config)
-// ---------------------------------------
-// (Here you can override any variables defined in the default set above)
-
-@brand-primary: pink; // needs a fabulous color ;)
-```
-Then you need to rename it into `bootstrap.less` and you can start using you costum build ;)
-
-## Advanced Usage
-
-Moreover you can take advantage of the mixins that bootstrap provides if you put 2 files into your projekt.
-
-Create one `variables.import.less` file which should only contain variables and mixins so you can import it into every file of you projekt for easy access.
-```css
 // defines where the package is
 @bootstrap3-less-root: "/packages/bootstrap3-less";
 
@@ -44,12 +13,8 @@ Create one `variables.import.less` file which should only contain variables and 
 // ---------------------------------------
 // (Here you can override any variables defined in the default set above)
 
-@icon-font-path: "/public/fonts/"; // this is reqired or else the fonts won't work
-```
+@icon-font-path: "@{bootstrap3-less-root}/lib/fonts/";
 
-To include the rest of bootstrap create then the `bootstrap.less` in which you put all files that actually contain the styles. You may remove or comment lines that you don't need to safe bandwith and performance.
-```css
-@import "variables.import.less"
 
 // Import Bootstrap
 // ---------------------------------------
@@ -100,13 +65,3 @@ To include the rest of bootstrap create then the `bootstrap.less` in which you p
 // Utility classes
 @import "@{bootstrap3-less-root}/lib/less/utilities.import.less";
 @import "@{bootstrap3-less-root}/lib/less/responsive-utilities.import.less";
-```
-
-## License
-
-This package is licensed with the MIT license. [Twitter's Bootstrap License](https://github.com/twbs/bootstrap).
-
-## Contributors
-- [Emmanuel Prochasson](https://github.com/eprochasson/)
-- [Alan Blount](https://github.com/zeroasterisk/)
-- [Marco Pfeiffer](https://github.com/Nemo64)
