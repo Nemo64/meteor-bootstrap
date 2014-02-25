@@ -49,23 +49,23 @@ echo "generate package.js file"
 echo "Package.describe({ summary: 'Bootstrap 3, with Less files.' });" > $METEOR_PACKAGE_FILE
 echo >> $METEOR_PACKAGE_FILE
 echo "Package.on_use(function (api) {" >> $METEOR_PACKAGE_FILE
-echo "	api.use('jquery', 'client');" >> $METEOR_PACKAGE_FILE
-echo "	api.use('less', 'client');" >> $METEOR_PACKAGE_FILE
+echo "  api.use('jquery', 'client');" >> $METEOR_PACKAGE_FILE
+echo "  api.use('less', 'client');" >> $METEOR_PACKAGE_FILE
 
 echo >> $METEOR_PACKAGE_FILE
-echo "	// javascript" >> $METEOR_PACKAGE_FILE
+echo "  // javascript" >> $METEOR_PACKAGE_FILE
 for JSFILE in $BOOTSTRAP_JS
-do 
+do
 	echo "add javascript file '$JSFILE.js'"
-	echo "    api.add_files('lib/js/$JSFILE.js', 'client');" >> $METEOR_PACKAGE_FILE
+	echo "  api.add_files('lib/js/$JSFILE.js', 'client');" >> $METEOR_PACKAGE_FILE
 done
 
 echo >> $METEOR_PACKAGE_FILE
-echo "	// fonts" >> $METEOR_PACKAGE_FILE
+echo "  // fonts" >> $METEOR_PACKAGE_FILE
 for FONTFILE in lib/fonts/*
-do 
+do
 	echo "add font file '$FONTFILE' to $METEOR_PACKAGE_FILE"
-	echo "    api.add_files('$FONTFILE', 'client');" >> $METEOR_PACKAGE_FILE
+	echo "  api.add_files('$FONTFILE', 'client');" >> $METEOR_PACKAGE_FILE
 done
 
 echo "});" >> $METEOR_PACKAGE_FILE
