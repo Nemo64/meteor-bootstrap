@@ -110,3 +110,4 @@ This package is licensed with the MIT license. [Twitter's Bootstrap License](htt
 - [Emmanuel Prochasson](https://github.com/eprochasson/)
 - [Alan Blount](https://github.com/zeroasterisk/)
 - [Marco Pfeiffer](https://github.com/Nemo64)
+- [Mikael Korpela](https://github.com/simison)
