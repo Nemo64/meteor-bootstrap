@@ -50,6 +50,8 @@ Create one `variables.import.less` file which should only contain variables and 
 To include the rest of bootstrap create then the `bootstrap.less` in which you put all files that actually contain the styles. You may remove or comment lines that you don't need to safe bandwith and performance.
 ```css
 @import "variables.import.less"
+// because of the order less handles it's imports this variable needs to be redefined
+@bootstrap3-less-root: "/packages/bootstrap3-less";
 
 // Import Bootstrap
 // ---------------------------------------
