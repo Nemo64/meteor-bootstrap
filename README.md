@@ -1,7 +1,7 @@
 # Bootstrap 3 with Less
-## Twitter's Bootstrap3 Packaged for Meteor, using Less
+## Twitter's Bootstrap 3 Packaged for Meteor, using Less
 
-Bootstrap 3, with all LESS files for easy style customization.
+Bootstrap 3, with all Less files for easy style customization.
 
 ## How to install
 
@@ -11,7 +11,7 @@ Bootstrap 3, with all LESS files for easy style customization.
 4. Create a .less file anywhere in your project to be served to the client and add `@import "/packages/bootstrap3-less/bootstrap.import.less";`
 5. `cd public && ln -s ../packages/bootstrap3-less/lib/fonts ./`
 
-## Costumized Usage
+## Customized Usage
 
 You can copy the `bootstrap.import.less` file into your project and overwrite the variables like this:
 ```css
@@ -21,13 +21,13 @@ You can copy the `bootstrap.import.less` file into your project and overwrite th
 
 @brand-primary: pink; // needs a fabulous color ;)
 ```
-Then you need to rename it into `bootstrap.less` and you can start using you costum build ;)
+Then you need to rename it into `bootstrap.less` and you can start using your custom build ;)
 
 ## Advanced Usage
 
-Moreover you can take advantage of the mixins that bootstrap provides if you put 2 files into your projekt.
+Moreover you can take advantage of the mixins that bootstrap provides if you put 2 files into your project.
 
-Create one `variables.import.less` file which should only contain variables and mixins so you can import it into every file of you projekt for easy access.
+Create one `variables.import.less` file which should only contain variables and mixins so you can import it into every file of you project for easy access.
 ```css
 // defines where the package is
 @bootstrap3-less-root: "/packages/bootstrap3-less";
@@ -47,7 +47,7 @@ Create one `variables.import.less` file which should only contain variables and 
 @icon-font-path: "/public/fonts/"; // this is reqired or else the fonts won't work
 ```
 
-To include the rest of bootstrap create then the `bootstrap.less` in which you put all files that actually contain the styles. You may remove or comment lines that you don't need to safe bandwith and performance.
+To include the rest of bootstrap, create a `bootstrap.less` file where you `@import` all files that actually contain the styles. You may remove or comment out lines that you don't need to save bandwidth and performance.
 ```css
 @import "variables.import.less"
 // because of the order less handles it's imports this variable needs to be redefined
