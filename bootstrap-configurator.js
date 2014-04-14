@@ -61,9 +61,9 @@ var handler = function (compileStep, isLiterate) {
       "// your less file by importing this file here, it won't print styles!",
       '@import "/' + basePath + '/lib/less/variables.import.less";',
       '@import "/' + basePath + '/lib/less/mixins.import.less";',
+      '@icon-font-path: "/' + basePath + '/lib/fonts/";',
       "",
-      "// Now it's your turn:",
-      "" // newline for convenience
+      "// Now it's your turn:\n\n" // newline for convenience
     ];
     var lessImportContent = lessImports.join('\n');
     fs.writeFileSync(lessImportName, lessImportContent, { encoding: 'utf8' });
