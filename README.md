@@ -8,9 +8,9 @@ Bootstrap 3, with all Less files for easy style customization.
 1. `npm install -g meteorite` (if not already installed)
 2. `mrt add less`
 3. `mrt add bootstrap3-less`
-4. create a `costum.bootstrap.json` file in your project (see below)
+4. create a `custom.bootstrap.json` file in your project (see below)
 
-### costum.bootstrap.json
+### custom.bootstrap.json
 This file is to configure which bootstrap modules you want. Set those you like to `true`!
 ```JSON
 {"modules": {
@@ -64,7 +64,7 @@ This file is to configure which bootstrap modules you want. Set those you like t
   "responsive-utilities": false
 }}
 ```
-As soon as you create that file 2 further files will appear in your project. One is called `costum.bootstrap.import.less` and is for you to overwrite variables. The other (`costum.bootstrap.less`) will then be your bootstrap! Have fun ;)
+As soon as you create that file 2 further files will appear in your project. One is called `custom.bootstrap.import.less` and is for you to overwrite variables. The other (`custom.bootstrap.less`) will then be your bootstrap! Have fun ;)
 
 ## License
 
