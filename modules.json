@@ -1,0 +1,70 @@
+{
+  "variables":{"less":["lib/less/variables.import.less"]},
+  "mixins":{"less":["lib/less/mixins.import.less"]},
+
+  "normalize":{"less":["lib/less/normalize.import.less"]},
+  "print":{"less":["lib/less/print.import.less"]},
+
+  "scaffolding":{"less":["lib/less/scaffolding.import.less"]},
+  "type":{"less":["lib/less/type.import.less"]},
+  "code":{"less":["lib/less/code.import.less"]},
+  "grid":{"less":["lib/less/grid.import.less"]},
+  "tables":{"less":["lib/less/tables.import.less"]},
+  "forms":{"less":["lib/less/forms.import.less"]},
+  "buttons":{"less":["lib/less/buttons.import.less"]},
+
+  "glyphicons":{"less":["lib/less/glyphicons.import.less"]},
+  "button-groups":{"less":["lib/less/button-groups.import.less"]},
+  "input-groups":{"less":["lib/less/input-groups.import.less"]},
+  "navs":{"less":["lib/less/navs.import.less"]},
+  "navbar":{"less":["lib/less/navbar.import.less"]},
+  "breadcrumbs":{"less":["lib/less/breadcrumbs.import.less"]},
+  "pagination":{"less":["lib/less/pagination.import.less"]},
+  "pager":{"less":["lib/less/pager.import.less"]},
+  "labels":{"less":["lib/less/labels.import.less"]},
+  "badges":{"less":["lib/less/badges.import.less"]},
+  "jumbotron":{"less":["lib/less/jumbotron.import.less"]},
+  "thumbnails":{"less":["lib/less/thumbnails.import.less"]},
+  "alerts":{"less":["lib/less/alerts.import.less"]},
+  "progress-bars":{"less":["lib/less/progress-bars.import.less"]},
+  "media":{"less":["lib/less/media.import.less"]},
+  "list-group":{"less":["lib/less/list-group.import.less"]},
+  "panels":{"less":["lib/less/panels.import.less"]},
+  "wells":{"less":["lib/less/wells.import.less"]},
+  "close":{"less":["lib/less/close.import.less"]},
+
+  "component-animations":{
+    "less":["lib/less/component-animations.import.less"]
+  },
+  "dropdowns":{
+    "less":["lib/less/dropdowns.import.less"],
+    "js":["lib/js/dropdown.js"]
+  },
+  "modals":{
+    "less":["lib/less/modals.import.less"],
+    "js":["lib/js/transition.js", "lib/js/modal.js"]
+  },
+  "tooltip":{
+    "less":["lib/less/tooltip.import.less"],
+    "js":["lib/js/tooltip.js"]
+  },
+  "popovers":{
+    "less":["lib/less/tooltip.import.less", "lib/less/popovers.import.less"],
+    "js":["lib/js/transition.js","lib/js/tooltip.js","lib/js/popover.js"]
+  },
+  "carousel":{
+    "less":["lib/less/carousel.import.less"],
+    "js":["lib/js/transition.js", "lib/js/carousel.js"]
+  },
+  
+  "affix":{"js":["lib/js/affix.js"]},
+  "alert":{"js":["lib/js/alert.js"]},
+  "button":{"js":["lib/js/button.js"]},
+  "collapse":{"js":["lib/js/transition.js","lib/js/collapse.js"]},
+  "scrollspy":{"js":["lib/js/scrollspy.js"]},
+  "tab":{"js":["lib/js/tab.js"]},
+  "transition":{"js":["lib/js/transition.js"]},
+
+  "utilities":{"less":["lib/less/utilities.import.less"]},
+  "responsive-utilities":{"less":["lib/less/responsive-utilities.import.less"]}
+}
