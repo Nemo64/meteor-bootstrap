@@ -57,7 +57,7 @@ This file is to configure which bootstrap modules you want. Set those you like t
   "button":               false,
   "collapse":             false,
   "scrollspy":            false,
-  "tab": false,
+  "tab":                  false,
   "transition":           false,
 
   "utilities":            false,
