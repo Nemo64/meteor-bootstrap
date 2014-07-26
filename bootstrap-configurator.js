@@ -59,9 +59,9 @@ var handler = function (compileStep, isLiterate) {
       "// You can write directly in it, as long as it exists it won't be overwritten",
       "// If you want, you can access all bootstrap variables and mixins within",
       "// your less file by importing this file here, it won't print styles!",
-      '@import "/' + basePath + '/lib/less/variables.import.less";',
-      '@import "/' + basePath + '/lib/less/mixins.import.less";',
-      '@icon-font-path: "/' + basePath + '/lib/fonts/";',
+      '@import "/' + basePath + '/bootstrap/less/variables.less";',
+      '@import "/' + basePath + '/bootstrap/less/mixins.less";',
+      '@icon-font-path: "/' + basePath + '/bootstrap/fonts/";',
       "",
       "// Now it's your turn:\n\n" // newline for convenience
     ];
