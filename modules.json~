@@ -18,8 +18,7 @@
   "input-groups":{"less":["bootstrap/less/input-groups.less"]},
   "navs":{"less":["bootstrap/less/navs.less"]},
   "navbar":{
-    "less":["bootstrap/less/utilities.less","bootstrap/less/forms.less","bootstrap/less/navs.less","bootstrap/less/navbar.less"],
-    "js":["bootstrap/js/transition.js","bootstrap/js/collapse.js"]
+    "less":["bootstrap/less/utilities.less","bootstrap/less/forms.less","bootstrap/less/navs.less","bootstrap/less/navbar.less"]
   },
   "breadcrumbs":{"less":["bootstrap/less/breadcrumbs.less"]},
   "pagination":{"less":["bootstrap/less/pagination.less"]},
