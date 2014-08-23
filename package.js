@@ -1,4 +1,8 @@
-Package.describe({ summary: 'Bootstrap 3, with Less files.' });
+Package.describe({
+  summary: "Highly customizable bootstrap integration.",
+  version: "0.2.0",
+  git: "https://github.com/Nemo64/meteor-bootstrap"
+});
 
 Package._transitional_registerBuildPlugin({
   name: 'bootstrap-configurator',
@@ -8,6 +12,7 @@ Package._transitional_registerBuildPlugin({
 });
 
 Package.on_use(function (api) {
+  api.versionsFrom("METEOR-CORE@0.9.0-atm");
   api.use('jquery', 'client');
   api.use('less', 'client');
   
