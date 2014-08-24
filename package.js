@@ -1,13 +1,19 @@
 Package.describe({
-  summary: "Highly customizable bootstrap integration.",
-  version: "0.2.0",
+  summary: "Highly configurable bootstrap integration.",
+  version: "1.0.0",
   git: "https://github.com/Nemo64/meteor-bootstrap"
 });
 
+
 Package._transitional_registerBuildPlugin({
   name: 'bootstrap-configurator',
-  use: [],
-  sources: ['bootstrap-configurator.js'],
+  use: ['underscore'],
+  sources: [
+    'modules.js',
+    'distributed-configuration.js',
+    'package.location.js',
+    'bootstrap-configurator.js'
+  ],
   npmDependencies: {}
 });
 
@@ -16,6 +22,9 @@ Package.on_use(function (api) {
   api.use('jquery', 'client');
   api.use('less', 'client');
   
+  // location hack
+  api.add_files('package.location.js', 'server');
+
   // fonts
   api.add_files('bootstrap/fonts/glyphicons-halflings-regular.eot', 'client');
   api.add_files('bootstrap/fonts/glyphicons-halflings-regular.svg', 'client');
