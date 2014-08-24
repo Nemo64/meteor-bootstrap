@@ -9,7 +9,7 @@ Package._transitional_registerBuildPlugin({
   name: 'bootstrap-configurator',
   use: ['underscore'],
   sources: [
-    'modules.js',
+    'module-definitions.js',
     'distributed-configuration.js',
     'package.location.js',
     'bootstrap-configurator.js'
