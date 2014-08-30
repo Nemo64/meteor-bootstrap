@@ -8,9 +8,9 @@ How to install
 
 
 
-1. <strike>execute `meteor add nemo64:bootstrap less`</strike> Currenlty this does not work, you need to copy this repository into `/packages` for it to work, as it uses hacks that trick meteor into including only desired files.
-2. create an empty `custom.bootstrap.json` file in your project.
-3. start meteor and edit the file you just created (see [custom.bootstrap.json](#custom.bootstrap.json)).
+1. execute `meteor add nemo64:bootstrap less`
+2. create an empty `custom.bootstrap.json` file in your project. (preferably in `client/lib` folder)
+3. start meteor and then edit the file you just created (see [custom.bootstrap.json](#custom.bootstrap.json)).
 4. (optional) edit `custom.bootstrap.import.less` which now appeared next to the json file
 
 custom.bootstrap.json
