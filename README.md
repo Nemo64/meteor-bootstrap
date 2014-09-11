@@ -1,17 +1,24 @@
-# Bootstrap 3 with Less
-## Twitter's Bootstrap 3 Packaged for Meteor, using Less
+Bootstrap for meteor
+====================
 
-Bootstrap 3, with all Less files for easy style customization.
+This package integrates bootstrap into meteor and let's you configure what parts you need.
 
-## How to install
+How to install
+--------------
 
-1. `npm install -g meteorite` (if not already installed)
-2. `mrt add less`
-3. `mrt add bootstrap3-less`
-4. create a `custom.bootstrap.json` file in your project (see below)
 
-### custom.bootstrap.json
-This file is to configure which bootstrap modules you want. Set those you like to `true`!
+
+1. execute `meteor add nemo64:bootstrap less`
+2. create an empty `custom.bootstrap.json` file somewhere in your project. (`/client/lib/custom.bootstrap.json` for example)
+3. start meteor and then edit the file you just created (see [custom.bootstrap.json](#custom.bootstrap.json)).
+4. (optional) edit `custom.bootstrap.import.less` which now appeared next to the json file
+
+custom.bootstrap.json
+---------------------
+IMPORTANT: the current version contains a typo. The generated `custom.bootstrap.json` contains a `;` at the end which results into a syntax error. Just remove it. Because I want the version numbers to be synced and meteor thinks `3.2.0-1` is a pre release I can't fix it right now.
+
+This file is to configure which bootstrap parts you need in your project. Set those you like to `true`!
+If the file is empty, it will be filled for with the following content:
 ```JSON
 {"modules": {
   "normalize":            true,
@@ -64,14 +71,14 @@ This file is to configure which bootstrap modules you want. Set those you like t
   "responsive-utilities": false
 }}
 ```
-As soon as you create that file 2 further files will appear in your project. One is called `custom.bootstrap.import.less` and is for you to overwrite variables. The other (`custom.bootstrap.less`) will then be your bootstrap! Have fun ;)
 
-## License
+License
+-------
 
-This package is licensed with the MIT license. [Twitter's Bootstrap License](https://github.com/twbs/bootstrap).
+This package is licensed with the MIT license.
+Also, look at the [Bootstrap license](https://github.com/twbs/bootstrap/blob/v3.2.0/LICENSE).
 
-## Contributors
-- [Emmanuel Prochasson](https://github.com/eprochasson/)
-- [Alan Blount](https://github.com/zeroasterisk/)
-- [Marco Pfeiffer](https://github.com/Nemo64)
-- [Mikael Korpela](https://github.com/simison)
+Origin
+------
+
+This package is based on and inspired by the [bootstrap3-less](https://github.com/simison/bootstrap3-less) package. I created a new repository because it takes a completly different approach now which is also incompatible.

@@ -48,5 +48,5 @@ distributedConfiguration = [
   '',
   '  "utilities":            false,',
   '  "responsive-utilities": false',
-  '}};'
+  '}}'
 ].join('\n');

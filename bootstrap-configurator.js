@@ -1,34 +1,31 @@
-var fs    = Npm.require('fs');
-var path  = Npm.require('path');
-
-// this hack allows me to figure out where the package location is
-// i know that it is not pretty... at all, but I found no other way.
-// packageLocation is defined by package.location.js
-Plugin.registerSourceHandler('location.js', {}, function (compileStep) {
-  packageLocation = path.dirname(compileStep._fullInputPath);
-  var fileContent = 'packageLocation = "' + packageLocation + '"';
-  fs.writeFileSync(compileStep._fullInputPath, fileContent);
-});
+var fs   = Npm.require('fs');
+var path = Npm.require('path');
 
 var createLessFile = function (path, content) {
   fs.writeFileSync(path, content.join('\n'), { encoding: 'utf8' });
 };
 
+var getAsset = function (filename) {
+  try {
+    return Assets.getText(filename);
+  } catch (e) {
+    // console.warn("nemo64:bootstrap: Assets.getText failed for '" + filename + "', used fs.readFileSync instead");
+    filename = path.join('.meteor/local/build/programs/server/assets/packages/nemo64\:bootstrap', filename);
+    return fs.readFileSync(filename, { encoding: 'utf-8' });
+  }
+}
+
+var getLessContent = function (filename) {
+  var content = getAsset(filename);
+  return '\n\n// @import "' + filename + '"\n'
+    + content.replace(/@import\s*["']([^"]+)["'];?/g, function (statement, importFile) {
+    return getLessContent(path.join(path.dirname(filename), importFile));
+  });
+};
+
 var handler = function (compileStep, isLiterate) {
   var jsonPath = compileStep._fullInputPath;
 
-  // package location from the global variable
-  if (packageLocation == null) {
-    compileStep.error({
-      message: "failed to get package location, a restart of meteor might help",
-      sourcePath: compileStep.inputPath
-    });
-    return;
-  }
-
-  // the path from the json file to this package
-  var relativePackagePath = path.relative(path.dirname(jsonPath), packageLocation);
-  
   // read the configuration of the project
   var userConfiguration = compileStep.read().toString('utf8');
   
@@ -89,7 +86,7 @@ var handler = function (compileStep, isLiterate) {
   
   // add javascripts
   for (var jsPath in js) {
-    var file = fs.readFileSync(path.join(basePath, jsPath), { encoding: 'utf8' });
+    var file = getAsset(jsPath);
     compileStep.addJavaScript({
       path: jsPath,
       data: file,
@@ -99,36 +96,28 @@ var handler = function (compileStep, isLiterate) {
   }
   
   // filenames
-  var variableLessFile = jsonPath.replace(/json$/i, 'variables.import.less');
-  var overwriteLessFile = jsonPath.replace(/json$/i, 'import.less');
-  var outputLessFile = jsonPath.replace(/json$/i, 'bootstrap.less');
-  
-  // create file where bootstrap variables are included
-  createLessFile(variableLessFile, [
-    "// THIS FILE IS GENERATED, DO NOT MODIFY IF!",
-    "// Here are all bootstrap imports, that do not contain any output.",
-    "// This includes variables and mixins.",
-    "//",
-    "// If you want to modify variables look into: " + overwriteLessFile,
-    "// I also recommend that you import the overwrite file into your less files",
-    "// That way you can access bootstraps helper mixins and variables",
-    '',
-    '@import "' + path.join(relativePackagePath, 'bootstrap/less/variables.less') + '";',
-    '@import "' + path.join(relativePackagePath, 'bootstrap/less/mixins.less') + '";'//,
-    //'@icon-font-path: "' + packageLocation + '/bootstrap/fonts/";', // TODO figure frontend path out
+  var mixinsLessFile = jsonPath.replace(/json$/i, 'mixins.import.less')
+  var importLessFile = jsonPath.replace(/json$/i, 'import.less');
+  var outputLessFile = jsonPath.replace(/json$/i, 'less');
+
+  createLessFile(mixinsLessFile, [
+    "// THIS FILE IS GENERATED, DO NOT MODIFY IT!",
+    "// These are the mixins bootstrap provides",
+    "// They are included here so you can use them in your less files too,",
+    "// However: you should @import \"" + path.basename(importLessFile) + "\" instead of this",
+    getLessContent('bootstrap/less/mixins.less')
   ]);
-  
+   
   // create the file that can be modified
-  if (! fs.existsSync(overwriteLessFile)) {
-    createLessFile(overwriteLessFile, [
+  if (! fs.existsSync(importLessFile)) {
+    createLessFile(importLessFile, [
       "// This File is for you to modify!",
       "// It won't be overwritten as long as it exists.",
       "// You may include this file into your less files to benefit from",
       "// mixins and variables that bootstrap provides.",
       '',
-      '@import "' + path.basename(variableLessFile) + '";',
-      '',
-      "// But now it's your turn:\n\n"
+      '@import "' + path.basename(mixinsLessFile) + '";',
+      getLessContent('bootstrap/less/variables.less')
     ]);
   }
   
@@ -138,10 +127,14 @@ var handler = function (compileStep, isLiterate) {
     "// It includes the bootstrap modules configured in " + compileStep.inputPath + ".",
     "// You may need to use 'meteor add less' if the styles are not loaded.",
     '',
-    '@import "' + path.basename(overwriteLessFile) + '";'
+    "// If it throws errors your bootstrap.import.less is probably invalid.",
+    "// To fix that remove that file and then recover your changes.",
+    '',
+    '@import "' + path.basename(importLessFile) + '";',
+    '@icon-font-path: "/packages/nemo64:bootstrap/bootstrap/fonts/";'
   ];
   _.each(less, function (lessPath) {
-    bootstrapContent.push('@import "' + path.join(relativePackagePath, lessPath) + '";');
+    bootstrapContent.push(getLessContent('' + lessPath));
   });
   createLessFile(outputLessFile, bootstrapContent);
 };
