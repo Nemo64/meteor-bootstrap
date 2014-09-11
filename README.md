@@ -15,6 +15,7 @@ How to install
 
 custom.bootstrap.json
 ---------------------
+IMPORTANT: the current version contains a typo. The generated `custom.bootstrap.json` contains a `;` at the end which results into a syntax error. Just remove i. Because I want the version numbers to be synced and meteor thinks `3.2.0-1` is a pre release I can't fix it right now.
 
 This file is to configure which bootstrap parts you need in your project. Set those you like to `true`!
 If the file is empty, it will be filled for with the following content:
