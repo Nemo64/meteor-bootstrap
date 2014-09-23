@@ -10,7 +10,7 @@ var getAsset = function (filename) {
     return Assets.getText(filename);
   } catch (e) {
     // console.warn("nemo64:bootstrap: Assets.getText failed for '" + filename + "', used fs.readFileSync instead");
-    filename = path.join('.meteor/local/build/programs/server/assets/packages/nemo64\:bootstrap', filename);
+    filename = path.join('.meteor/local/build/programs/server/assets/packages/nemo64_bootstrap', filename);
     return fs.readFileSync(filename, { encoding: 'utf-8' });
   }
 }
@@ -131,7 +131,7 @@ var handler = function (compileStep, isLiterate) {
     "// To fix that remove that file and then recover your changes.",
     '',
     '@import "' + path.basename(importLessFile) + '";',
-    '@icon-font-path: "/packages/nemo64:bootstrap/bootstrap/fonts/";'
+    '@icon-font-path: "/packages/nemo64_bootstrap/bootstrap/fonts/";'
   ];
   _.each(less, function (lessPath) {
     bootstrapContent.push(getLessContent('' + lessPath));
