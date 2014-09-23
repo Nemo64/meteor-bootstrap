@@ -6,14 +6,8 @@ var createLessFile = function (path, content) {
 };
 
 var getAsset = function (filename) {
-  try {
-    return Assets.getText(filename);
-  } catch (e) {
-    // console.warn("nemo64:bootstrap: Assets.getText failed for '" + filename + "', used fs.readFileSync instead");
-    filename = path.join('.meteor/local/build/programs/server/assets/packages/nemo64_bootstrap', filename);
-    return fs.readFileSync(filename, { encoding: 'utf-8' });
-  }
-}
+  return BootstrapData(filename);
+};
 
 var getLessContent = function (filename) {
   var content = getAsset(filename);
@@ -48,7 +42,6 @@ var handler = function (compileStep, isLiterate) {
   
   // configuration
   var moduleConfiguration = userConfiguration.modules || {};
-  //var moduleDefinitions = moduleDefinitions; // from modules.js
   
   // these variables contain the files that need to be included
   var js = {}; // set of required js files
@@ -139,4 +132,4 @@ var handler = function (compileStep, isLiterate) {
   createLessFile(outputLessFile, bootstrapContent);
 };
 
-Plugin.registerSourceHandler('bootstrap.json', {archMatching: 'web'}, handler);
+Plugin.registerSourceHandler('bootstrap.json', /*{archMatching: 'web.client'}, */handler);
