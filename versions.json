@@ -9,6 +9,10 @@
       "1.1.0"
     ],
     [
+      "nemo64:bootstrap-data",
+      "3.2.0-rc1"
+    ],
+    [
       "underscore",
       "1.0.0"
     ]
@@ -18,8 +22,8 @@
       "bootstrap-configurator",
       {
         "underscore": "1.0.0",
-        "bootstrap-data": "3.2.0",
-        "meteor": "1.1.0"
+        "meteor": "1.1.0",
+        "nemo64:bootstrap-data": "3.2.0-rc1"
       }
     ]
   ],
