@@ -1,7 +1,6 @@
 Package.describe({
-  summary: " \* Fill me in! *\ ",
-  version: "1.0.0",
-  git: " \* Fill me in! *\ "
+  summary: "bootstrap data",
+  version: "3.2.0"
 });
 
 Package.onTest(function(api) {
@@ -101,10 +100,4 @@ Package.onUse(function(api) {
     'bootstrap/js/tab.js',
     'bootstrap/js/tooltip.js',
   ], 'server', {isAsset:true});
-  api.add_files([
-    'bootstrap/fonts/glyphicons-halflings-regular.eot',
-    'bootstrap/fonts/glyphicons-halflings-regular.svg',
-    'bootstrap/fonts/glyphicons-halflings-regular.ttf',
-    'bootstrap/fonts/glyphicons-halflings-regular.woff',
-  ], 'client');
 });

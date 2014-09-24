@@ -124,7 +124,7 @@ var handler = function (compileStep, isLiterate) {
     "// To fix that remove that file and then recover your changes.",
     '',
     '@import "' + path.basename(importLessFile) + '";',
-    '@icon-font-path: "/packages/nemo64_bootstrap/bootstrap/fonts/";'
+    '@icon-font-path: "/packages/nemo64_bootstrap/packages/bootstrap-data/bootstrap/fonts/";'
   ];
   _.each(less, function (lessPath) {
     bootstrapContent.push(getLessContent('' + lessPath));
@@ -132,4 +132,4 @@ var handler = function (compileStep, isLiterate) {
   createLessFile(outputLessFile, bootstrapContent);
 };
 
-Plugin.registerSourceHandler('bootstrap.json', /*{archMatching: 'web.client'}, */handler);
+Plugin.registerSourceHandler('bootstrap.json', {archMatching: 'web'}, handler);

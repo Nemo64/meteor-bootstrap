@@ -28,12 +28,12 @@ done
 echo "  ], 'server', {isAsset:true});" >> $PACKAGE_JS
 
 # add fonts directly for the frontend
-# echo "  api.add_files([" >> $PACKAGE_JS
-# for FILE in $FONT_FILES
-# do
-#   echo "    '$FILE'," >> $PACKAGE_JS
-# done
-# echo "  ], 'client');" >> $PACKAGE_JS
+echo "  api.add_files([" >> $PACKAGE_JS
+for FILE in $FONT_FILES
+do
+  echo "    '$FILE'," >> $PACKAGE_JS
+done
+echo "  ], 'client');" >> $PACKAGE_JS
 
 # end the use statement
 echo "});" >> $PACKAGE_JS

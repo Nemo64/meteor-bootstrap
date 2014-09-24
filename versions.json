@@ -18,7 +18,7 @@
       "bootstrap-configurator",
       {
         "underscore": "1.0.0",
-        "bootstrap-data": "1.0.0",
+        "bootstrap-data": "3.2.0",
         "meteor": "1.1.0"
       }
     ]
