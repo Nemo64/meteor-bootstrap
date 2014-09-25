@@ -1,3 +1,0 @@
-[submodule "bootstrap"]
-	path = packages/bootstrap-data/bootstrap
-	url = https://github.com/twbs/bootstrap
