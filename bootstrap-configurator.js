@@ -17,6 +17,9 @@ var getLessContent = function (filename) {
   });
 };
 
+var lessProcessed = [];
+var jsProcessed = [];
+
 var handler = function (compileStep, isLiterate) {
   var jsonPath = compileStep._fullInputPath;
 
@@ -79,13 +82,19 @@ var handler = function (compileStep, isLiterate) {
   
   // add javascripts
   for (var jsPath in js) {
-    var file = getAsset(jsPath);
-    compileStep.addJavaScript({
-      path: jsPath,
-      data: file,
-      sourcePath: jsPath,
-      bare: true // they are already wrapped (tiny optimisation)
-    });
+    if(typeof jsProcessed[compileStep.arch] === "undefined") {
+      jsProcessed[compileStep.arch] = [];
+    }
+    if(_.indexOf(jsProcessed[compileStep.arch], jsPath) === -1) {
+      jsProcessed[compileStep.arch].push(jsPath);
+      var file = getAsset(jsPath);
+      compileStep.addJavaScript({
+        path: jsPath,
+        data: file,
+        sourcePath: jsPath,
+        bare: true // they are already wrapped (tiny optimisation)
+      });
+    }
   }
   
   // filenames
@@ -128,7 +137,13 @@ var handler = function (compileStep, isLiterate) {
     '@icon-font-path: "/packages/nemo64_bootstrap-data/bootstrap/fonts/";'
   ];
   _.each(less, function (lessPath) {
-    bootstrapContent.push(getLessContent('' + lessPath));
+    if(typeof lessProcessed[compileStep.arch] === "undefined") {
+      lessProcessed[compileStep.arch] = [];
+    }
+    if(_.indexOf(lessProcessed[compileStep.arch], lessPath) === -1) {
+      lessProcessed[compileStep.arch].push(lessPath)
+      bootstrapContent.push(getLessContent('' + lessPath));
+    }
   });
   createLessFile(outputLessFile, bootstrapContent);
   
