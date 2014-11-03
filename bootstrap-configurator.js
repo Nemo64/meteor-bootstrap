@@ -92,6 +92,7 @@ var handler = function (compileStep, isLiterate) {
   var mixinsLessFile = jsonPath.replace(/json$/i, 'mixins.import.less')
   var importLessFile = jsonPath.replace(/json$/i, 'import.less');
   var outputLessFile = jsonPath.replace(/json$/i, 'less');
+  var gitignoreFile = path.join(path.dirname(jsonPath), '.gitignore');
 
   createLessFile(mixinsLessFile, [
     "// THIS FILE IS GENERATED, DO NOT MODIFY IT!",
@@ -124,12 +125,20 @@ var handler = function (compileStep, isLiterate) {
     "// To fix that remove that file and then recover your changes.",
     '',
     '@import "' + path.basename(importLessFile) + '";',
-    '@icon-font-path: "/packages/nemo64_bootstrap/bootstrap/fonts/";'
+    '@icon-font-path: "/packages/nemo64_bootstrap-data/bootstrap/fonts/";'
   ];
   _.each(less, function (lessPath) {
     bootstrapContent.push(getLessContent('' + lessPath));
   });
   createLessFile(outputLessFile, bootstrapContent);
+  
+  if (! fs.existsSync(gitignoreFile)) {
+    var content = [
+      path.basename(mixinsLessFile),
+      path.basename(outputLessFile)
+    ].join('\n');
+    fs.writeFileSync(gitignoreFile, content, { encoding: 'utf8' });
+  }
 };
 
-Plugin.registerSourceHandler('bootstrap.json', /*{archMatching: 'web.client'}, */handler);
+Plugin.registerSourceHandler('bootstrap.json', {archMatching: 'web'}, handler);
