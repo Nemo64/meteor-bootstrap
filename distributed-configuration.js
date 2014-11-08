@@ -28,6 +28,7 @@ distributedConfiguration = [
   '  "media":                false,',
   '  "list-group":           false,',
   '  "panels":               false,',
+  '  "responsive-embed":     false,',
   '  "wells":                false,',
   '  "close":                false,',
   '',

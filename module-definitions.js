@@ -33,6 +33,7 @@ moduleDefinitions = {
   "media":{less:["bootstrap/less/media.less"]},
   "list-group":{less:["bootstrap/less/list-group.less"]},
   "panels":{less:["bootstrap/less/panels.less"]},
+  "responsive-embed":{less:["bootstrap/less/responsive-embed.less"]},
   "wells":{less:["bootstrap/less/wells.less"]},
   "close":{less:["bootstrap/less/close.less"]},
 
