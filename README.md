@@ -1,7 +1,7 @@
 Bootstrap for meteor
 ====================
 
-This package integrates bootstrap into meteor and let's you configure what parts you need.
+This package integrates bootstrap into meteor and lets you configure what parts you need.
 
 How to install
 --------------
@@ -79,4 +79,4 @@ Also, look at the [Bootstrap license](https://github.com/twbs/bootstrap/blob/v3.
 Origin
 ------
 
-This package is based on and inspired by the [bootstrap3-less](https://github.com/simison/bootstrap3-less) package. I created a new repository because it takes a completly different approach now which is also incompatible.
+This package is based on and inspired by the [bootstrap3-less](https://github.com/simison/bootstrap3-less) package. I created a new repository because it takes a completely different approach now which is also incompatible.
