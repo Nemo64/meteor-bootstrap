@@ -9,7 +9,7 @@ Package.describe({
 Package._transitional_registerBuildPlugin({
   name: 'bootstrap-configurator',
   use: [
-    'underscore',
+    'underscore@1.0.2',
     'nemo64:bootstrap-data@3.3.1_1'
   ],
   sources: [
