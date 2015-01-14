@@ -92,8 +92,7 @@ var handler = function (compileStep, isLiterate) {
   // file extensions
   var mixinsLessFile = jsonPath.replace(/json$/i, 'mixins.import.less')
   var variablesLessFile = jsonPath.replace(/json$/i, 'variables.import.less');
-  var outputLessFile = jsonPath.replace(/json$/i, 'import.less');
-  var outputCssFile = jsonPath.replace(/json$/i, 'css.import.less');
+  var outputCssFile = jsonPath.replace(/json$/i, 'import.less');
 
   createFile(mixinsLessFile, [
     "// THIS FILE IS GENERATED, DO NOT MODIFY IT!",
@@ -129,7 +128,6 @@ var handler = function (compileStep, isLiterate) {
 
   // Compile the created Less file into CSS
   var lessOptions = {
-    filename: outputLessFile,
     syncImport: true,
     paths: [path.dirname(compileStep._fullInputPath)] // for @import
   }
