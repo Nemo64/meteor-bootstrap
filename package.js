@@ -17,7 +17,9 @@ Package._transitional_registerBuildPlugin({
     'distributed-configuration.js',
     'bootstrap-configurator.js'
   ],
-  npmDependencies: {}
+  npmDependencies: {
+    "less": "2.2.0"
+  }
 });
 
 Package.on_use(function (api) {
