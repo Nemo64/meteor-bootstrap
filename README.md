@@ -118,6 +118,8 @@ input {
 ```
 This is because there are many pseudo-classes that `.form-control` has associated with it, but the standard `extend` only finds exact matches. To match those pseudo-classes as well, you need to use the `all` keyword.
 
+### A quirk in `extend`ing
+Using `extend` to include the Bootstrap styles in your stylesheets copies in the styles rather than [adding the selector to the properties you wish to use](http://lesscss.org/features/#extend-feature-reducing-css-size). This is a limitation of Meteor since all of the Less files are compiled independently. You can get around this if you have one file that has `@import (reference) custom.bootstrap.import.less` first and then explicitly imports every single stylesheet that will depend on Bootstrap (which will all need to end in `.import.less`). All of those stylesheets will then be compiled in the same step.
 
 ## License
 
