@@ -1,9 +1,10 @@
 var fs   = Npm.require('fs');
 var path = Npm.require('path');
+var less = Npm.require('less');
 
-var createLessFile = function (path, content) {
+var createFile = function (path, content) {
   fs.writeFileSync(path, content.join('\n'), { encoding: 'utf8' });
-};
+}
 
 var getAsset = function (filename) {
   return BootstrapData(filename);
@@ -44,8 +45,8 @@ var handler = function (compileStep, isLiterate) {
   var moduleConfiguration = userConfiguration.modules || {};
   
   // these variables contain the files that need to be included
-  var js = {}; // set of required js files
-  var less = {}; // set of required less files
+  var jsFiles = {}; // set of required js files
+  var lessFiles = {}; // set of required less files
   
   // read module configuration to find out which js/less files are needed
   var allModulesOk = _.every(moduleConfiguration, function (enabled, module) {
@@ -64,10 +65,10 @@ var handler = function (compileStep, isLiterate) {
     }
     
     _.each(moduleDefinition.less || [], function (file) {
-      less[file] = file;
+      lessFiles[file] = file;
     });
     _.each(moduleDefinition.js || [], function (file) {
-      js[file] = file;
+      jsFiles[file] = file;
     });
     
     return true;
@@ -78,7 +79,7 @@ var handler = function (compileStep, isLiterate) {
   }
   
   // add javascripts
-  for (var jsPath in js) {
+  for (var jsPath in jsFiles) {
     var file = getAsset(jsPath);
     compileStep.addJavaScript({
       path: jsPath,
@@ -88,22 +89,23 @@ var handler = function (compileStep, isLiterate) {
     });
   }
   
-  // filenames
+  // file extensions
   var mixinsLessFile = jsonPath.replace(/json$/i, 'mixins.import.less')
-  var importLessFile = jsonPath.replace(/json$/i, 'import.less');
-  var outputLessFile = jsonPath.replace(/json$/i, 'less');
+  var variablesLessFile = jsonPath.replace(/json$/i, 'variables.import.less');
+  var outputLessFile = jsonPath.replace(/json$/i, 'import.less');
+  var outputCssFile = jsonPath.replace(/json$/i, 'css.import.less');
 
-  createLessFile(mixinsLessFile, [
+  createFile(mixinsLessFile, [
     "// THIS FILE IS GENERATED, DO NOT MODIFY IT!",
     "// These are the mixins bootstrap provides",
     "// They are included here so you can use them in your less files too,",
-    "// However: you should @import \"" + path.basename(importLessFile) + "\" instead of this",
+    "// However: you should @import \"" + path.basename(variablesLessFile) + "\" instead of this",
     getLessContent('bootstrap/less/mixins.less')
   ]);
    
   // create the file that can be modified
-  if (! fs.existsSync(importLessFile)) {
-    createLessFile(importLessFile, [
+  if (! fs.existsSync(variablesLessFile)) {
+    createFile(variablesLessFile, [
       "// This File is for you to modify!",
       "// It won't be overwritten as long as it exists.",
       "// You may include this file into your less files to benefit from",
@@ -114,22 +116,60 @@ var handler = function (compileStep, isLiterate) {
     ]);
   }
   
-  // create the file that finally includes bootstrap
-  var bootstrapContent = [
-    "// THIS FILE IS GENERATED, DO NOT MODIFY IT!",
-    "// It includes the bootstrap modules configured in " + compileStep.inputPath + ".",
-    "// You may need to use 'meteor add less' if the styles are not loaded.",
-    '',
-    "// If it throws errors your bootstrap.import.less is probably invalid.",
-    "// To fix that remove that file and then recover your changes.",
-    '',
-    '@import "' + path.basename(importLessFile) + '";',
+  // create the Less file that includes the specified modules
+  var bootstrapLess = [
+    '@import "' + path.basename(variablesLessFile) + '";',
     '@icon-font-path: "/packages/nemo64_bootstrap-data/bootstrap/fonts/";'
   ];
-  _.each(less, function (lessPath) {
-    bootstrapContent.push(getLessContent('' + lessPath));
+  _.each(lessFiles, function (lessPath) {
+    bootstrapLess.push(getLessContent('' + lessPath));
   });
-  createLessFile(outputLessFile, bootstrapContent);
+
+  bootstrapLess = bootstrapLess.join('\n'); // Turn the array into a string
+
+  // Compile the created Less file into CSS
+  var lessOptions = {
+    filename: outputLessFile,
+    syncImport: true,
+    paths: [path.dirname(compileStep._fullInputPath)] // for @import
+  }
+
+  less.render(bootstrapLess, lessOptions, function(error, output) {
+    if (error) {
+      compileStep.error({
+        message: "Error generating the Bootstrap css file, " + error,
+        sourcePath: compileStep.inputPath
+      });
+    } else {
+      createFile(outputCssFile, [
+        "/*",
+        " * This file is auto generated according to the modules specified in ", 
+        " * " +  compileStep.inputPath + " and the variables ", 
+        " * in " + path.basename(variablesLessFile),
+        " * Any modifications will be overwritten!",
+        " *",
+        " * To use Bootstrap styles in a Less file import it with",
+        " *'@import (reference) \"" + path.basename(outputCssFile) + "\"'",
+        " * and then include the desired styles with extend, e.g. \"button:extend(.btn)\"",
+        " * This ensures that only the needed selectors will be copied in.",
+        " * Some styles will need the additional 'all' keyword when extended.",
+        " * e.g. \"input:extend(.form-control all)\"",
+        " *",
+        " * If you don't need normalize.css or include it elsewhere, and don't use",
+        " * Bootstrap classes in your HTML markup then you won't need to ever import",
+        " * this file without the (reference) keyword",
+        " */",
+        "",
+        output.css
+      ]);
+    }
+  });
+  
 };
 
 Plugin.registerSourceHandler('bootstrap.json', {archMatching: 'web'}, handler);
+
+// Register the bootstrap variables as a dependency so that the css will be re-built
+Plugin.registerSourceHandler("bootstrap.variables.import.less", {archMatching: 'web'}, function () {
+  // Do nothing
+});
