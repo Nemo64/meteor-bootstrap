@@ -90,9 +90,9 @@ var handler = function (compileStep, isLiterate) {
   }
   
   // file extensions
-  var mixinsLessFile = jsonPath.replace(/json$/i, 'mixins.import.less')
-  var variablesLessFile = jsonPath.replace(/json$/i, 'variables.import.less');
-  var outputCssFile = jsonPath.replace(/json$/i, 'import.less');
+  var mixinsLessFile = jsonPath.replace(/json$/i, 'mixins.less')
+  var variablesLessFile = jsonPath.replace(/json$/i, 'variables.less');
+  var outputCssFile = jsonPath.replace(/json$/i, 'less');
 
   createFile(mixinsLessFile, [
     "// THIS FILE IS GENERATED, DO NOT MODIFY IT!",
@@ -135,8 +135,10 @@ var handler = function (compileStep, isLiterate) {
   less.render(bootstrapLess, lessOptions, function(error, output) {
     if (error) {
       compileStep.error({
-        message: "Error generating the Bootstrap css file, " + error,
-        sourcePath: compileStep.inputPath
+        message: "Error generating custom.bootstrap.less, " + error.message,
+        sourcePath: error.filename || compileStep.inputPath,
+        line: error.line,
+        column: error.column + 1
       });
     } else {
       createFile(outputCssFile, [
@@ -166,8 +168,3 @@ var handler = function (compileStep, isLiterate) {
 };
 
 Plugin.registerSourceHandler('bootstrap.json', {archMatching: 'web'}, handler);
-
-// Register the bootstrap variables as a dependency so that the css will be re-built
-Plugin.registerSourceHandler("bootstrap.variables.import.less", {archMatching: 'web'}, function () {
-  // Do nothing
-});
