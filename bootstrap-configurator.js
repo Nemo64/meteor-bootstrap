@@ -91,7 +91,11 @@ var handler = function (compileStep, isLiterate) {
   // filenames
   var mixinsLessFile = jsonPath.replace(/json$/i, 'mixins.import.less')
   var importLessFile = jsonPath.replace(/json$/i, 'import.less');
-  var outputLessFile = jsonPath.replace(/json$/i, 'less');
+  if( userConfiguration.generateInclude ){
+    var outputLessFile = jsonPath.replace(/json$/i, 'modules.import.less');
+  }else{
+    var outputLessFile = jsonPath.replace(/json$/i, 'less');
+  }
 
   createLessFile(mixinsLessFile, [
     "// THIS FILE IS GENERATED, DO NOT MODIFY IT!",

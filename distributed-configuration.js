@@ -1,5 +1,7 @@
 distributedConfiguration = [
-  '{"modules": {',
+  '{"generateInclude":       false,',
+  ' "modules": ',
+  ' {',
   '  "normalize":            true,',
   '  "print":                false,',
   '',
