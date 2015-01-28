@@ -1,5 +1,5 @@
 Package.describe({
-  name: "semantic-bootstrap",
+  name: "grove:bootstrap",
   summary: "Highly configurable bootstrap integration.",
   version: "3.3.1_1",
   git: "https://github.com/grovelabs/meteor-bootstrap"

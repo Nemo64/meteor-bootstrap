@@ -4,7 +4,7 @@ var less = Npm.require('less');
 
 var createFile = function (path, content) {
   fs.writeFileSync(path, content.join('\n'), { encoding: 'utf8' });
-}
+};
 
 var getAsset = function (filename) {
   return BootstrapData(filename);
@@ -12,8 +12,8 @@ var getAsset = function (filename) {
 
 var getLessContent = function (filename) {
   var content = getAsset(filename);
-  return '\n\n// @import "' + filename + '"\n'
-    + content.replace(/@import\s*["']([^"]+)["'];?/g, function (statement, importFile) {
+  return '\n\n// @import "' + filename + '"\n' + 
+    content.replace(/@import\s*["']([^"]+)["'];?/g, function (statement, importFile) {
     return getLessContent(path.join(path.dirname(filename), importFile));
   });
 };
@@ -52,7 +52,7 @@ var handler = function (compileStep, isLiterate) {
   var allModulesOk = _.every(moduleConfiguration, function (enabled, module) {
     
     var moduleDefinition = moduleDefinitions[module];
-    if (moduleDefinition == null) {
+    if ( moduleDefinition === null ) {
       compileStep.error({
         message: "The module '" + module + "' does not exist.",
         sourcePath: compileStep.inputPath
@@ -90,7 +90,7 @@ var handler = function (compileStep, isLiterate) {
   }
   
   // file extensions
-  var mixinsLessFile = jsonPath.replace(/json$/i, 'mixins.less')
+  var mixinsLessFile = jsonPath.replace(/json$/i, 'mixins.less');
   var variablesLessFile = jsonPath.replace(/json$/i, 'variables.less');
   var outputCssFile = jsonPath.replace(/json$/i, 'less');
 
@@ -130,7 +130,7 @@ var handler = function (compileStep, isLiterate) {
   var lessOptions = {
     syncImport: true,
     paths: [path.dirname(compileStep._fullInputPath)] // for @import
-  }
+  };
 
   less.render(bootstrapLess, lessOptions, function(error, output) {
     if (error) {
