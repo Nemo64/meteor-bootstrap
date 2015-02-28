@@ -6,8 +6,6 @@ This package integrates bootstrap into meteor and lets you configure what parts 
 How to install
 --------------
 
-
-
 1. execute `meteor add nemo64:bootstrap less`
 2. create an empty `custom.bootstrap.json` file somewhere in your project. (`/client/lib/custom.bootstrap.json` for example)
 3. start meteor and then edit the file you just created (see [custom.bootstrap.json](#custom.bootstrap.json)).
@@ -69,6 +67,11 @@ If the file is empty, it will be filled for with the following content:
   "responsive-utilities": false
 }}
 ```
+
+Contribution
+-------
+
+Contributions are always welcome. I'm also searching for collaborators becuase I'm currently not actively deveolping with meteor. If you area interested, write me at git@marco.zone
 
 License
 -------
