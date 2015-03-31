@@ -68,6 +68,18 @@ If the file is empty, it will be filled for with the following content:
 }}
 ```
 
+Upgrading
+---------
+
+When upgrading, you may get an error stating:
+
+```
+While building the application:
+   client/lib/custom.bootstrap.less:1629:18: Less compiler error: variable @form-group-margin-bottom is undefined
+```
+
+If so, See https://github.com/Nemo64/meteor-bootstrap/issues/42 for the fix.
+
 Contribution
 -------
 
