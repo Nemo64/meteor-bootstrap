@@ -11,61 +11,66 @@ How to install
 3. start meteor and then edit the file you just created (see [custom.bootstrap.json](#custom.bootstrap.json)).
 4. (optional) edit `custom.bootstrap.import.less` which now appeared next to the json file
 
-custom.bootstrap.json
+`custom.bootstrap.json`
 ---------------------
 This file is to configure which bootstrap parts you need in your project. Set those you like to `true`!
 If the file is empty, it will be filled for with the following content:
+
 ```JSON
-{"modules": {
-  "normalize":            true,
-  "print":                false,
+{
+  "modules" : {
+    "normalize"            : true,
+    "print"                : false,
+    "glyphicons"           : false,
 
-  "scaffolding":          false,
-  "type":                 false,
-  "code":                 false,
-  "grid":                 false,
-  "tables":               false,
-  "forms":                false,
-  "buttons":              false,
+    "scaffolding"          : false,
+    "type"                 : false,
+    "code"                 : false,
+    "grid"                 : false,
+    "tables"               : false,
+    "forms"                : false,
+    "buttons"              : false,
 
-  "glyphicons":           false,
-  "button-groups":        false,
-  "input-groups":         false,
-  "navs":                 false,
-  "navbar":               false,
-  "breadcrumbs":          false,
-  "pagination":           false,
-  "pager":                false,
-  "labels":               false,
-  "badges":               false,
-  "jumbotron":            false,
-  "thumbnails":           false,
-  "alerts":               false,
-  "progress-bars":        false,
-  "media":                false,
-  "list-group":           false,
-  "panels":               false,
-  "wells":                false,
-  "close":                false,
+    "component-animations" : false,
+    "dropdowns"            : false,
+    "button-groups"        : false,
+    "input-groups"         : false,
+    "navs"                 : false,
+    "navbar"               : false,
+    "breadcrumbs"          : false,
+    "pagination"           : false,
+    "pager"                : false,
+    "labels"               : false,
 
-  "component-animations": false,
-  "dropdowns":            false,
-  "modals":               false,
-  "tooltip":              false,
-  "popovers":             false,
-  "carousel":             false,
-  
-  "affix":                false,
-  "alert":                false,
-  "button":               false,
-  "collapse":             false,
-  "scrollspy":            false,
-  "tab":                  false,
-  "transition":           false,
+    "badges"               : false,
+    "jumbotron"            : false,
+    "thumbnails"           : false,
+    "alerts"               : false,
+    "progress-bars"        : false,
+    "media"                : false,
+    "list-group"           : false,
+    "panels"               : false,
+    "responsive-embed"     : false,
+    "wells"                : false,
+    "close"                : false,
 
-  "utilities":            false,
-  "responsive-utilities": false
-}}
+    "modals"               : false,
+    "tooltip"              : false,
+    "popovers"             : false,
+    "carousel"             : false,
+
+    "affix"                : false,
+    "alert"                : false,
+    "button"               : false,
+    "collapse"             : false,
+    "scrollspy"            : false,
+    "tab"                  : false,
+    "transition"           : false,
+
+    "utilities"            : false,
+    "responsive-utilities" : false
+  }
+}
 ```
 
 Upgrading
