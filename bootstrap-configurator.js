@@ -123,8 +123,8 @@ var handler = function (compileStep, isLiterate) {
     "// If it throws errors your bootstrap.import.less is probably invalid.",
     "// To fix that remove that file and then recover your changes.",
     '',
-    '@import "' + path.basename(importLessFile) + '";',
-    '@icon-font-path: "/packages/nemo64_bootstrap-data/bootstrap/fonts/";'
+    '@icon-font-path: "/packages/nemo64_bootstrap-data/bootstrap/fonts/";',
+    '@import "' + path.basename(importLessFile) + '";'
   ];
   _.each(less, function (lessPath) {
     bootstrapContent.push(getLessContent('' + lessPath));
