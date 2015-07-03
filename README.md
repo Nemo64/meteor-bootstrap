@@ -88,7 +88,9 @@ While building the application:
 
 This is due to the upstream Bootstrap library introducing LESS variables that your project is not aware of. The quickest fix is to execute the following script from within your project:
 
-   curl https://raw.githubusercontent.com/Nemo64/meteor-bootstrap/master/upgrade/upgrade-3.3.4-3.3.5.sh | sh
+```
+curl https://raw.githubusercontent.com/Nemo64/meteor-bootstrap/master/upgrade/upgrade-3.3.4-3.3.5.sh | sh
+```
 
 Alternately, you can manually apply the following patch to `custom.bootstrap.less`: https://github.com/Nemo64/meteor-bootstrap/blob/master/upgrade/3.3.5-upgrade.patch
 
