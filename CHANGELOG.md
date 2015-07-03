@@ -1,14 +1,17 @@
-### v.next
+### 3.3.5
+######11 April 2015
+
+Update Bootstrap to latest upstream version 3.3.5.
 
 - e5c2607 (HEAD, origin/master, origin/HEAD, master) Update README.md
 
 
-### 3.3.4_2 
+### 3.3.4_2
 ######11 April 2015
 
 Adjust source of the auto-generated `custom.bootstrap.json` file, which previously
 could cause errors due to the compnent load sequence diverging from the upstream
-Bootstrap. 
+Bootstrap.
 
 - 1d60760 bump version
 - a1ce591 fix bootstrap load sequence
