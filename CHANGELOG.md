@@ -1,10 +1,11 @@
 ### 3.3.5
-######11 April 2015
+######3 July 2015
 
 Update Bootstrap to latest upstream version 3.3.5.
 
-- e5c2607 (HEAD, origin/master, origin/HEAD, master) Update README.md
-
+- e5c2607 Update README.md
+- 0292d8e Bump version to 3.3.5
+- 618b33c Create tool for fixing upgrade error
 
 ### 3.3.4_2
 ######11 April 2015
