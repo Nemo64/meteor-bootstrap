@@ -10,7 +10,7 @@ set -o pipefail
 #---------------------------------------------------
 
 # We should have `patch` tool available
-hash patcsh 2>/dev/null || { echo >&2 "The patch tool is required, but not found."; exit 1; }
+hash patch 2>/dev/null || { echo >&2 "The patch tool is required, but not found."; exit 1; }
 
 # We should have an unambigious custom.bootstrap.import.less to work with
 export BOOTSTRAP_COUNT=`find . -name custom.bootstrap.import.less | wc -l`
