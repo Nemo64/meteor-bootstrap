@@ -1,4 +1,5 @@
-#Upgrade problems? See below before creating an issue.
+#*Upgrade problems?* 
+See [Upgrading instructions](https://github.com/Nemo64/meteor-bootstrap#upgrading) before creating an issue.
 
 Bootstrap for Meteor
 ====================
