@@ -1,4 +1,5 @@
-#Upgrade problems? See below before creating an issue.
+#*Upgrade problems?* 
+See [Upgrading instructions](https://github.com/Nemo64/meteor-bootstrap#upgrading) before creating an issue.
 
 Bootstrap for Meteor
 ====================
@@ -78,7 +79,7 @@ If the file is empty, it will be filled for with the following content:
 Upgrading
 ---------
 
-When upgrading, you may get an error stating:
+After upgrading using `meteor update`, you may get an error stating:
 
 ```
 While building the application:
@@ -87,9 +88,11 @@ While building the application:
 
 This is due to the upstream Bootstrap library introducing LESS variables that your project is not aware of. The quickest fix is to execute the following script from within your project:
 
-   curl https://raw.githubusercontent.com/Nemo64/meteor-bootstrap/master/upgrade/upgrade-3.3.4-3.3.5.sh | sh
+```
+curl https://raw.githubusercontent.com/Nemo64/meteor-bootstrap/master/upgrade/upgrade-3.3.4-3.3.5.sh | /bin/bash
+```
 
-Alternately, you can manually apply the following patch to `custom.bootstrap.less`: https://github.com/Nemo64/meteor-bootstrap/blob/master/upgrade/3.3.5-upgrade.patch
+Alternately, you can manually apply this [patch](https://github.com/Nemo64/meteor-bootstrap/blob/master/upgrade/3.3.5-upgrade.patch) to `custom.bootstrap.less`: 
 
 
 Contribution
