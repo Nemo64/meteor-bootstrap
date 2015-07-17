@@ -54,14 +54,14 @@ moduleDefinitions = {
     js:["bootstrap/js/tooltip.js"]
   },
   "popovers":{
-    less:["bootstrap/less/tooltip.less", "bootstrap/less/popovers.less"],
+    less:["bootstrap/less/popovers.less"],
     js:["bootstrap/js/transition.js","bootstrap/js/tooltip.js","bootstrap/js/popover.js"]
   },
   "carousel":{
     less:["bootstrap/less/carousel.less"],
     js:["bootstrap/js/transition.js", "bootstrap/js/carousel.js"]
   },
-  
+
   "affix":{js:["bootstrap/js/affix.js"]},
   "alert":{js:["bootstrap/js/alert.js"]},
   "button":{js:["bootstrap/js/button.js"]},

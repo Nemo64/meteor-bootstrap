@@ -1,3 +1,8 @@
+### 3.3.5_2
+######16 July 2015
+
+Uncouple tooltip.less from popover.
+
 ### 3.3.5_1
 ######4 July 2015
 
