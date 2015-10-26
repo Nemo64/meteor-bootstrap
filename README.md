@@ -1,5 +1,5 @@
 #*Upgrade problems?* 
-See [Upgrading instructions](https://github.com/Nemo64/meteor-bootstrap#upgrading) before creating an issue.
+`nemo64:bootstrap` does not work with Meteor 1.2. For a similar packages that does work with Meteor 1.2, try https://github.com/huttonr/bootstrap3
 
 Bootstrap for Meteor
 ====================
