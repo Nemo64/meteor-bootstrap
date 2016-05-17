@@ -113,7 +113,9 @@ var handler = function (compileStep, isLiterate) {
       getLessContent('bootstrap/less/variables.less')
     ]);
   }
-  
+
+  var ROOT_PATH = process.env.ROOT_PATH || '';
+
   // create the file that finally includes bootstrap
   var bootstrapContent = [
     "// THIS FILE IS GENERATED, DO NOT MODIFY IT!",
@@ -124,7 +126,7 @@ var handler = function (compileStep, isLiterate) {
     "// To fix that remove that file and then recover your changes.",
     '',
     '@import "' + path.basename(importLessFile) + '";',
-    '@icon-font-path: "/packages/nemo64_bootstrap-data/bootstrap/fonts/";'
+    '@icon-font-path: "' + ROOT_PATH + '/packages/nemo64_bootstrap-data/bootstrap/fonts/' + '";'
   ];
   _.each(less, function (lessPath) {
     bootstrapContent.push(getLessContent('' + lessPath));
