@@ -1,7 +1,7 @@
 Package.describe({
   name: "nemo64:bootstrap",
   summary: "Highly configurable bootstrap integration.",
-  version: "3.3.5_2",
+  version: "3.3.5_3",
   git: "https://github.com/Nemo64/meteor-bootstrap"
 });
 
