@@ -98,7 +98,7 @@ Alternately, you can manually apply this [patch](https://github.com/Nemo64/meteo
 Contribution
 -------
 
-Contributions are always welcome. I'm also searching for collaborators becuase I'm currently not actively deveolping with meteor. If you area interested, write me at git@marco.zone
+Contributions are always welcome. I'm also searching for collaborators because I'm currently not actively deveolping with meteor. If you area interested, write me at git@marco.zone
 
 License
 -------
